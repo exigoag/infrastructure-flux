@@ -1,0 +1,60 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: prometheus-stack
+  namespace: monitoring
+spec:
+  interval: 1m0s
+  chart:
+    spec:
+      chart: kube-prometheus-stack
+      version: 68.2.1
+      sourceRef:
+        kind: HelmRepository
+        name: prometheus-community
+        namespace: flux-system
+  values:
+    #https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml
+    defaultRules:
+      rules:
+        kubeProxy: false
+
+    grafana:
+      defaultDashboardsTimezone: Europe/Zurich
+      #ingress:
+      #  enabled: true
+      #  ingressClassName: nginx
+      #  hosts:
+      #    - #TODO
+      #  tls:
+      #    - hosts:
+      #      - #TODO
+
+    prometheus:
+      prometheusSpec:
+        replicas: 1
+        serviceMonitorSelectorNilUsesHelmValues: false
+        podMonitorSelectorNilUsesHelmValues: false
+        ruleSelectorNilUsesHelmValues: false
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              accessModes: ["ReadWriteOnce"]
+              resources:
+                requests:
+                  storage: 50Gi
+
+    kubeControllerManager:
+      service:
+        selector:
+          k8s-app: kube-controller-manager
+    kubeScheduler:
+      service:
+        selector:
+          k8s-app: kube-scheduler
+    kubeEtcd:
+      service:
+        selector:
+          k8s-app: kube-controller-manager
+    kubeProxy:
+      enabled: false
