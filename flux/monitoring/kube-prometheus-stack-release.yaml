@@ -45,16 +45,10 @@ spec:
                   storage: 50Gi
 
     kubeControllerManager:
-      service:
-        selector:
-          k8s-app: kube-controller-manager
+      enabled: false
     kubeScheduler:
-      service:
-        selector:
-          k8s-app: kube-scheduler
+      enabled: false
     kubeEtcd:
-      service:
-        selector:
-          k8s-app: kube-controller-manager
+      enabled: false
     kubeProxy:
       enabled: false
