@@ -21,6 +21,8 @@ spec:
         requests:
           cpu: 200m
           memory: 256Mi
+        limits:
+          memory: 1Gi
 
       autoscaling:
         enabled: true
@@ -44,8 +46,12 @@ spec:
       service:
         externalTrafficPolicy: Local
 
-      #config:
-      #  worker-connections: "4096"
+      config:
+        # Automatically set the number of worker processes based on CPU cores
+        worker-processes: "auto"
+        # Increase worker connections for higher concurrency
+        worker-connections: "4096"
+
       #  large-client-header-buffers: "4 16k"
       #  proxy-read-timeout: "600"
       #  proxy-send-timeout: "600"
