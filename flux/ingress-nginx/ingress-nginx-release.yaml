@@ -19,7 +19,7 @@ spec:
 
       resources:
         requests:
-          cpu: 500m
+          cpu: "1"
           memory: 256Mi
         limits:
           memory: 1Gi
@@ -52,14 +52,8 @@ spec:
         # Increase worker connections for higher concurrency
         worker-connections: "4096"
         keep-alive: "75"
-        enable-gzip: "true"
         large-client-header-buffers: "4 16k"
-
-      #  large-client-header-buffers: "4 16k"
-      #  proxy-read-timeout: "600"
-      #  proxy-send-timeout: "600"
-      #  keep-alive: "75"
-      #  enable-gzip: "true"
+      
 
 
       metrics:
