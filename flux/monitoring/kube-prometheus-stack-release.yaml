@@ -26,7 +26,6 @@ spec:
         kubeProxy: false
         kubeControllerManager: false
         kubeScheduler: false
-        system-apiserver
 
     grafana:
       defaultDashboardsTimezone: Europe/Zurich
