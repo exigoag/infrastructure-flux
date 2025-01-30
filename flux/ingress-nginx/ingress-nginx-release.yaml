@@ -59,10 +59,10 @@ spec:
       #  enable-gzip: "true"
 
 
-    #metrics:
-    #  enabled: true
-    #  serviceMonitor:
-    #    enabled: true
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
     #  prometheusRule:
     #    enabled: true
     #    rules:
