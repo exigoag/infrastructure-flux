@@ -44,13 +44,13 @@ spec:
       service:
         externalTrafficPolicy: Local
 
-      config:
-        worker-connections: "4096"
-        large-client-header-buffers: "4 16k"
-        proxy-read-timeout: "600"
-        proxy-send-timeout: "600"
-        keep-alive: "75"
-        enable-gzip: "true"
+      #config:
+      #  worker-connections: "4096"
+      #  large-client-header-buffers: "4 16k"
+      #  proxy-read-timeout: "600"
+      #  proxy-send-timeout: "600"
+      #  keep-alive: "75"
+      #  enable-gzip: "true"
 
 
     metrics:

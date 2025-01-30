@@ -13,6 +13,10 @@ spec:
         kind: HelmRepository
         name: prometheus-community
         namespace: flux-system
+  valuesFrom:
+    - kind: Secret
+      name: kube-prometheus-config
+      optional: true
   values:
     #https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml
     defaultRules:
