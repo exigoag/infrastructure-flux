@@ -59,12 +59,10 @@ spec:
       #  enable-gzip: "true"
 
 
-    metrics:
-      enabled: true
-      serviceMonitor:
+      metrics:
         enabled: true
-        additionalLabels:
-          release: prometheus-stack
+        serviceMonitor:
+          enabled: true
     #  prometheusRule:
     #    enabled: true
     #    rules:
