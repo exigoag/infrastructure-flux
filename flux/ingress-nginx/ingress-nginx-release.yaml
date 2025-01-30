@@ -19,7 +19,7 @@ spec:
 
       resources:
         requests:
-          cpu: 200m
+          cpu: 500m
           memory: 256Mi
         limits:
           memory: 1Gi
@@ -28,7 +28,7 @@ spec:
         enabled: true
         minReplicas: 2
         maxReplicas: 10
-        targetCPUUtilizationPercentage: 70
+        targetCPUUtilizationPercentage: 50
 
       # Node placement with soft anti affinity
       affinity:
@@ -51,6 +51,9 @@ spec:
         worker-processes: "auto"
         # Increase worker connections for higher concurrency
         worker-connections: "4096"
+        keep-alive: "75"
+        enable-gzip: "true"
+        large-client-header-buffers: "4 16k"
 
       #  large-client-header-buffers: "4 16k"
       #  proxy-read-timeout: "600"
