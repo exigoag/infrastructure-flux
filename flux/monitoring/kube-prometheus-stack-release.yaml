@@ -18,6 +18,8 @@ spec:
     defaultRules:
       rules:
         kubeProxy: false
+        kubeControllerManager: false
+        kubeScheduler: false
 
     grafana:
       defaultDashboardsTimezone: Europe/Zurich
@@ -48,7 +50,7 @@ spec:
       enabled: false
     kubeScheduler:
       enabled: false
-    kubeEtcd:
-      enabled: false
+    #kubeEtcd:
+    #  enabled: false
     kubeProxy:
       enabled: false
