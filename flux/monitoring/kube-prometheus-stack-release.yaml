@@ -20,10 +20,13 @@ spec:
   values:
     #https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml
     defaultRules:
+      disabled:
+        KubeClientCertificateExpiration: true
       rules:
         kubeProxy: false
         kubeControllerManager: false
         kubeScheduler: false
+        system-apiserver
 
     grafana:
       defaultDashboardsTimezone: Europe/Zurich
