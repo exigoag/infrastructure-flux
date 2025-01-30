@@ -47,12 +47,12 @@ spec:
         externalTrafficPolicy: Local
 
       config:
-        # Automatically set the number of worker processes based on CPU cores
-        worker-processes: "auto"
-        # Increase worker connections for higher concurrency
-        worker-connections: "4096"
-        keep-alive: "75"
         large-client-header-buffers: "4 16k"
+        worker-processes: "auto"
+        max-worker-connections: "65536"
+        keep-alive-requests: "10000"
+        keep-alive: "75"
+        upstream-keepalive-connections: "2000"
       
 
 
